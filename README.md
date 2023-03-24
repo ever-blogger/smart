@@ -20,4 +20,4 @@ See the demo site for all documentation.
 
 https://demo.ryanfeigenbaum.com
 
-Thanks
+Thanks.
