@@ -18,7 +18,7 @@
     "version": "git add .",
     "postversion": "git push && git push --tags",
     "zip": "npm run build && bestzip $npm_package_name.zip assets/* partials/* *.hbs package.json",
-    "test": "gscan .",
+    "test": "npx gscan .",
     "css": "npx stylelint 'assets/css/**/*.css' --fix"
   },
   "keywords": [
@@ -35,17 +35,16 @@
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-terser": "^0.4.0",
     "bestzip": "^2.2.1",
-    "eslint": "8.38.0",
+    "eslint": "8.39.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-import": "2.27.5",
-    "gscan": "^4.36.1",
     "postcss-import": "^15.1.0",
     "postcss-preset-env": "^8.0.1",
     "rollup": "^3.18.0",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-postcss": "^4.0.2",
-    "stylelint": "15.4.0",
+    "stylelint": "15.5.0",
     "stylelint-config-recess-order": "^4.0.0",
     "stylelint-config-standard": "^32.0.0"
   },
