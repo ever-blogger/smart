@@ -88,12 +88,11 @@
   position: absolute;
   top: 0.5rem;
   left: 0.75rem;
-
-  /* padding: 0.75rem; */
+  font-family: var(--ui-typeface);
   font-size: var(--x-small);
   color: var(--element-light);
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing);
+  letter-spacing: var(--letter-spacing-expand);
   content: 'Contents';
   opacity: 0.5;
 }

@@ -1,12 +1,10 @@
 .sm-header-grid > * {
   grid-column: content;
-  text-align: center;
 }
 
 .sm-header-title {
   margin: 0;
-  font-weight: 900;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .sm-header-excerpt {
@@ -47,7 +45,7 @@
   line-height: 1;
   color: var(--element-light);
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing);
+  letter-spacing: var(--letter-spacing-expand);
   background-color: var(--border-color);
   border-radius: var(--radius);
   translate: 0 -0.5em;

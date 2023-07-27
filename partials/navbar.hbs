@@ -1,73 +1,96 @@
 {{! Navigation bar }}
-<div class='sm-grid sm-navbar-container'>
-  <header class='sm-navbar'>
-    <div class='sm-navbar-left'>
-
-      {{#is 'home'}}
-        <h1 class='sm-site-title'><a
-            href='{{@site.url}}'
-          >{{@site.title}}</a></h1>
-      {{else}}
-        <p class='sm-site-title'><a href='{{@site.url}}'>{{@site.title}}</a></p>
-      {{/is}}
-
+<div class='sm-grid sm-navbar-wrapper'>
+  <header class='sm-navbar sm-flex-h'>
+    <div class='sm-navbar-left sm-flex-h'>
+      {{#if @site.icon}}
+        <picture>
+          <source 
+            srcset="
+          {{img_url @site.icon size="48" format="avif"}} 48w,
+          {{img_url @site.icon size="80" format="avif"}} 80w,
+          {{img_url @site.icon size="160" format="avif"}} 160w,
+          {{img_url @site.icon size="240" format="avif"}} 240w,
+          {{img_url @site.icon size="528" format="avif"}} 528w,
+          {{img_url @site.icon size="800" format="avif"}} 800w,
+          {{img_url @site.icon size="1200" format="avif"}} 1200w,
+          {{img_url @site.icon size="1600" format="avif"}} 1600w,
+          {{img_url @site.icon size="1920" format="avif"}} 1920w,
+          {{img_url @site.icon size="2000" format="avif"}} 2000w"
+            sizes="24px" 
+            type="image/avif"
+          >
+          <source 
+            srcset="
+          {{img_url @site.icon size="48" format="webp"}} 48w,
+          {{img_url @site.icon size="80" format="webp"}} 80w,
+          {{img_url @site.icon size="160" format="webp"}} 160w,
+          {{img_url @site.icon size="240" format="webp"}} 240w,
+          {{img_url @site.icon size="528" format="webp"}} 528w,
+          {{img_url @site.icon size="800" format="webp"}} 800w,
+          {{img_url @site.icon size="1200" format="webp"}} 1200w,
+          {{img_url @site.icon size="1600" format="webp"}} 1600w,
+          {{img_url @site.icon size="1920" format="webp"}} 1920w,
+          {{img_url @site.icon size="2000" format="webp"}} 2000w"
+            sizes="24px" 
+            type="image/webp"
+          >
+          <img
+            srcset="
+          {{img_url @site.icon size="48"}} 48w,
+          {{img_url @site.icon size="80"}} 80w,
+          {{img_url @site.icon size="160"}} 160w,
+          {{img_url @site.icon size="240"}} 240w,
+          {{img_url @site.icon size="528"}} 528w,
+          {{img_url @site.icon size="800"}} 800w,
+          {{img_url @site.icon size="1200"}} 1200w,
+          {{img_url @site.icon size="1600"}} 1600w,
+          {{img_url @site.icon size="1920"}} 1920w,
+          {{img_url @site.icon size="2000"}} 2000w"
+            sizes="24px" 
+            src="{{img_url @site.icon size="48"}}"
+            alt=""
+            width="24"
+            height="24"
+          >
+        </picture>
+      {{/if}}
+      <p class='sm-site-title'><a href='{{@site.url}}'>{{@site.title}}</a></p>
       {{navigation}}
+
     </div>
 
     <div class='sm-navbar-right'>
-      <button
-        class='sm-circle-icon-button'
-        data-ghost-search
-        aria-label='search'
-      >
-        <svg aria-hidden='true'><use href='#sm-search-icon'></use></svg>
-      </button>
-      <button
-        class='sm-circle-icon-button sm-dark-mode'
-        aria-label='Turn on dark mode'
-      >
+      {{#match @site.members_enabled}}
+      {{#match @member}}
+      <a href="#/portal/account" aria-label="View account">
+      <svg aria-hidden='true'>
+        <use href='#sm-person-icon'></use>
+      </a>{{else}}
+      <a href='#/portal/signin'>Login</a>
+      {{/match}}
+      {{/match}}
+     
+      <button class='sm-dark-mode' aria-label="Set dark mode">
         <svg aria-hidden='true'><use href='#sm-moon-icon'></use></svg>
       </button>
-      <button
-        class='sm-circle-icon-button sm-light-mode'
-        aria-label='Turn on light mode'
-      >
+      <button class='sm-light-mode' aria-label="Set light mode">
         <svg aria-hidden='true'><use href='#sm-sun-icon'></use></svg>
       </button>
-
-      <button
-        class='sm-circle-icon-button sm-saves-button'
-        aria-label='Open saves menu'
-      >
+       <a href='#/search' aria-label="Search {{@site.title}}">
         <svg aria-hidden='true'>
-          <use href='#sm-heart-outline-icon'></use>
+          <use href='#sm-search-icon'></use>
         </svg>
+      </a>
+      <button
+        class='sm-circle-icon-button sm-navbar-menu-button'
+        aria-label='menu'
+        aria-expanded='false'
+        aria-controls='sm-nav-menu'
+      ><svg aria-hidden='true'><use href='#sm-menu-icon'></use></svg>
       </button>
-
-      {{#if @site.members_enabled}}
-        {{#if @member}}<button
-            class='sm-button'
-            data-portal='account'
-          >Account</button>{{else}}<button
-            class='sm-button'
-            data-portal='signup'
-          >Subscribe</button>
-        {{/if}}
-      {{/if}}
     </div>
-
-    <button
-      class='sm-circle-icon-button sm-navbar-menu-button'
-      aria-label='menu'
-    ><svg aria-hidden='true'><use href='#sm-menu-icon'></use></svg></button>
   </header>
+
 </div>
 
-<div class='sm-navbar-saves'>
-  <button class='sm-navbar-close-saves' aria-label='close saves menu'>
-    <svg aria-hidden='true'>
-      <use href='#sm-close-icon'></use>
-    </svg>
-  </button>
-  <div class='sm-overflow-articles'></div>
-</div>
+  {{> "nav-menu"}}

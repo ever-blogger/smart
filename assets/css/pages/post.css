@@ -1,7 +1,7 @@
 /* stylelint-disable selector-class-pattern */
 .sm-post-title {
   margin-block-end: 1rem;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 /* TODO - Combine with card.css */
@@ -16,8 +16,18 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding-block: var(--spacing-02);
+  font-family: var(--ui-typeface);
   text-align: left;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+
+  > div {
+    display: flex;
+    gap: var(--spacing-02);
+    align-items: center;
+  }
 }
 
 .sm-post-author-block p {
@@ -69,13 +79,14 @@
   gap: 1rem;
   align-items: center;
   justify-content: center;
+  font-family: var(--ui-typeface);
   line-height: 1;
 }
 
 .sm-post-share p {
   font-size: var(--small);
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing);
+  letter-spacing: var(--letter-spacing-expand);
   opacity: 0.5;
 }
 
@@ -124,7 +135,7 @@
   font-size: var(--x-small);
   color: var(--element-light);
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing);
+  letter-spacing: var(--letter-spacing-expand);
   opacity: 0.8;
 }
 
@@ -137,31 +148,9 @@
   color: var(--element-light);
 }
 
-.sm-post-save-button {
-  display: flex;
-  align-items: center;
-  text-transform: uppercase;
-  transition: color 0.3s;
-}
-
-.sm-post-save-button.sm-love-button {
-  transform: none;
-}
-
 .sm-post-meta a:hover,
 .sm-post-save-button:hover {
   color: var(--primary);
-}
-
-.sm-post-save-button span {
-  display: flex;
-  gap: 3px;
-  align-items: center;
-  line-height: 0;
-}
-
-.sm-post-save-button.sm-love-button.sm-love-toggle .sm-heart-fill-icon {
-  display: flex;
 }
 
 /* Related posts */
@@ -173,11 +162,6 @@
 .sm-related-posts .sm-grid-home {
   padding: 0;
   margin-block: 0;
-}
-
-/* Related posts block */
-.sm-related-posts h2 {
-  margin-block-start: 1rem;
 }
 
 /* Comments */

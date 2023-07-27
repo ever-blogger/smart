@@ -10,48 +10,76 @@
   --laptop: 992px;
   --desktop: 1200px;
   --widescreen: 1400px;
-  --gap: 1rem;
-  --gutter: 20px;
-  --width: 992px;
+  --width: 1200px;
   --post-width: 768px;
-  --content-width: 700px;
+  --content-width: 600px;
   --radius: 0.5em;
   --radius-small: 3px;
+  --spacing-01: 0.25rem;
+  --spacing-02: 0.5rem;
+  --spacing-03: 0.75rem;
+  --spacing-04: 1rem;
+  --spacing-06: 1.5rem;
+  --spacing-08: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-14: 3.5rem;
+  --spacing-16: 4rem;
+  --spacing-18: 4.5rem;
+  --spacing-20: 5rem;
+  --spacing-22: 5.5rem;
+  --spacing-24: 6rem;
+  --spacing-26: 6.5rem;
+  --spacing-28: 7rem;
+  --spacing-30: 7.5rem;
+  --spacing-32: 8rem;
+  --spacing-34: 8.5rem;
+  --spacing-36: 9rem;
+  --gap: var(--spacing-04);
+  --gutter: 20px;
+  --bento-gap: var(--spacing-03);
+  --box-padding: var(--spacing-06);
+  --button-padding: var(--spacing-02) var(--spacing-03);
 
   /* Type */
-  --body-typeface: 'public', system-ui, sans-serif;
-  --heading-typeface: 'public', system-ui, sans-serif;
-  --mono-typeface: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Menlo',
-    monospace;
-  --letter-spacing: 0.2px;
+  --ui-typeface: archivo, system-ui, sans-serif;
+  --body-typeface: lora, 'Bitstream Charter', 'Sitka Text', cambria, serif;
+  --heading-typeface: archivo, sans-serif;
+  --mono-typeface: ui-monospace, 'Cascadia Code', 'Source Code Pro', menlo,
+    consolas, 'DejaVu Sans Mono', monospace;
+  --letter-spacing-expand: 0.2px;
+  --letter-spacing-contract: -0.2px;
   --h1: 2.488rem;
   --h2: 2.074rem;
   --h3: 1.728rem;
   --h4: 1.44rem;
   --h5: 1.2rem;
   --h6: 1rem;
-  --small: 0.833rem;
+  --small: min(0.833rem, 15px);
   --x-small: 0.694rem;
   --xx-small: 0.579rem;
-  --button-padding: 0.5em 0.75em;
   --transition: 0.3s;
+  --twitter: #1da1f2;
+  --facebook: #3b5998;
+  --linkedin: #0077b5;
 }
 
 @media (--tablet) {
   :root {
-    --gap: 1.5rem;
-    --gutter: 40px;
+    --gap: var(--spacing-06);
+    --gutter: var(--spacing-08);
   }
 }
 
 @media (--laptop) {
   :root {
-    --gap: 2rem;
+    --gap: var(--spacing-08);
   }
 }
 
 /* Color scheme */
 :root[data-color-pref='light'] {
+  /* Primary color */
   --primary: hsl(var(--primary-h) var(--saturation) var(--lightness));
   --primary-light: hsl(
     var(--primary-h) var(--saturation) calc(var(--lightness) * 1.5)
@@ -59,6 +87,8 @@
   --primary-dark: hsl(
     var(--primary-h) var(--saturation) calc(var(--lightness) * 0.5)
   );
+
+  /* Secondary color */
   --secondary: hsl(
     var(--complementary-color) var(--saturation) var(--lightness)
   );
@@ -68,18 +98,23 @@
   --secondary-dark: hsl(
     var(--complementary-color) var(--saturation) calc(var(--lightness) * 0.5)
   );
-  --surface: hsl(var(--primary-h) 7% 96%);
-  --surface-85: hsla(var(--primary-h) 7% 96% / 85%);
-  --surface-light: hsl(var(--primary-h) 7% 100%);
-  --surface-dark: hsl(var(--primary-h) 7% 89%);
-  --surface-darker: hsl(var(--primary-h) 7% 82%);
-  --element: hsl(var(--primary-h) 7% 5%);
-  --element-light: hsl(var(--primary-h) 7% 35%);
-  --element-dark: hsl(var(--primary-h) 7% 1%);
-  --border-color: hsl(var(--primary-h) 7% 82% / 50%);
+
+  /* Surface */
+  --surface: hsl(var(--primary-h) 8% 99%);
+  --surface-85: hsla(var(--primary-h) 8% 99% / 85%);
+  --surface-light: hsl(var(--primary-h) 3% 100%);
+  --surface-dark: hsl(var(--primary-h) 15% 89%);
+  --surface-darker: hsl(var(--primary-h) 8% 82%);
+
+  /* Element */
+  --element: hsl(var(--primary-h) 7% 1.5%);
+  --element-light: hsl(var(--primary-h) 0.9% 7.4%);
+  --element-dark: hsl(var(--primary-h) 7% 0%);
+  --element-darker: hsl(var(--primary-h) 3% 0%);
+  --border-color: hsl(var(--primary-h) 0.6% 87%);
   --navbar-color: hsl(var(--primary-h) 7% 92% / 80%);
   --border-color-accent: hsla(var(--primary-h) 7% 72% / 50%);
-  --button-text: hsl(var(--primary-h) 7% 100%);
+  --button-text: hsl(var(--primary-h) 100% 90%);
   --box-shadow: 0 0.7px 2.2px hsla(var(--primary-h) var(--saturation) 9% / 2%),
     0 1.6px 5.3px hsla(var(--primary-h) var(--saturation) 9% / 2.8%),
     0 3px 10px hsla(var(--primary-h) var(--saturation) 9% / 3.5%),
@@ -108,19 +143,23 @@
   --secondary-dark: hsl(
     var(--complementary-color) var(--saturation) calc(var(--lightness) * 1.15)
   );
-  --element: hsl(var(--primary-h) 7% 96%);
+
+  /* Element */
+  --element: hsl(var(--primary-h) 7% 99%);
   --element-light: hsl(var(--primary-h) 7% 100%);
-  --element-dark: hsl(var(--primary-h) 7% 89%);
-  --element-darker: hsl(var(--primary-h) 7% 82%);
-  --surface: hsl(var(--primary-h) 7% 12%);
-  --surface-85: hsla(var(--primary-h) 7% 15% / 85%);
-  --surface-light: hsl(var(--primary-h) 7% 18%);
-  --surface-dark: hsl(var(--primary-h) 7% 8%);
-  --surface-darker: hsl(var(--primary-h) 7% 3%);
-  --border-color: hsl(var(--primary-h) 7% 35% / 50%);
+  --element-dark: hsl(var(--primary-h) 1.9% 96%);
+  --element-darker: hsl(var(--primary-h) 1.1% 93%);
+
+  /* Surface */
+  --surface-darker: hsl(var(--primary-h) .5% 15%);
+  --surface-dark: hsl(var(--primary-h) .5% 11%);
+  --surface: hsl(var(--primary-h) 16% 4.3%);
+  --surface-85: hsla(var(--primary-h) 16% 4.3% / 85%);
+  --surface-light: hsl(var(--primary-h) 0% 0%);
+  --border-color: hsl(var(--primary-h) 0.4% 15%);
   --navbar-color: hsl(var(--primary-h) 7% 15% / 80%);
   --border-color-accent: hsla(var(--primary-h) 7% 25% / 50%);
-  --button-text: hsl(var(--primary-h) 7% 3%);
+  --button-text: hsl(var(--primary-h) 100% 10%);
   --box-shadow: 0 0.7px 2.2px hsla(var(--primary-h) var(--saturation) 1% / 2%),
     0 1.6px 5.3px hsla(var(--primary-h) var(--saturation) 1% / 4.8%),
     0 3px 10px hsla(var(--primary-h) var(--saturation) 1% / 5.5%),

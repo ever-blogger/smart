@@ -1,8 +1,8 @@
 html {
   height: 100%;
   font-family: var(--body-typeface);
-  font-size: 1rem;
-  font-size: clamp(1rem, 0.9091rem + 0.4545vw, 1.25rem);
+  font-size: 1.1875rem;
+  font-size: clamp(1.1875rem, 1.0625rem + 0.26041666666666663vw, 1.375rem);
   font-feature-settings: 'kern';
   font-kerning: normal;
   line-height: 1.5;
@@ -58,4 +58,20 @@ body {
 .sm-zap::after {
   right: 0;
   background-image: linear-gradient(-90deg, var(--border-color), transparent);
+}
+
+[data-color-pref='light'] .sm-light-mode {
+  display: none;
+}
+
+[data-color-pref='dark'] .sm-dark-mode {
+  display: none;
+}
+
+.sm-show {
+  display: flex;
+}
+
+.sm-hide {
+  display: none;
 }
